@@ -23,9 +23,26 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'InstaLaravel') }}
-                </a>
+                @guest
+
+                @else
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home')}}" role="button">{{ __('Inici') }}</a></li> 
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home')}}" role="button">Reserva d'habitacions</a></li> 
+                        <li class="nav-item dropdown">
+                            <a id="hola" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{_('Restaurant') }}        
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="hola">
+                                <!--CAL EDITAR LES RUTES I CREAR RUTES NOVES QUE COMPLEIXIN LA FUNCIÓ QUE TOCA-->
+                                        <a class="dropdown-item" href="{{ route('home') }}">{{ __('Menu del dia') }}</a>
+                                        <a class="dropdown-item" href="{{ route('home') }}">{{ __('Carta') }}</a>
+                            </div> 
+                        </li>
+                    </ul>
+                @endguest
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -72,12 +89,25 @@
                                     <a class="dropdown-item" href="{{ route('edit') }}">
                                         {{ __('Editar Perfil') }}
                                     </a>
-                                   
+
+                                    <!--FALTA HACER QUE SEA FUNCIONAL DE MOMENTO TE REDIRIGE A HOME-->
+                                   @if(Auth::user()->role == 'admin')
+                                        <a class="dropdown-item" href="{{ route('edit-role') }}">
+                                            {{ __('Modificar roles') }}
+                                        </a>
+                                    @endif
+
+                                    @if(Auth::user()->role == 'chef')
+                                        <a class="dropdown-item" href="{{ route('home') }}">
+                                            {{ __('Crear plato') }}
+                                        </a>
+                                    @endif 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

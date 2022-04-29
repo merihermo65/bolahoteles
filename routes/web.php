@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/post.avatar/{filename}', [App\Http\Controllers\HomeController::class, 'getavatar'])->name('getavatar');
+Route::get('/post.avatar/{filename}', [App\Http\Controllers\AdminController::class, 'getavatar'])->name('getavatar');
 
 
 
@@ -33,6 +35,19 @@ Route::get('/edit', [App\Http\Controllers\UserController::class, 'index'])->name
 Route::put('/edita', [App\Http\Controllers\UserController::class, 'update'])->name('edita');
 
 Route::get('/editpass', [App\Http\Controllers\UserController::class, 'updatepass'])->name('editpass');
+
+
+
+
+//EDITAR ROLES
+Route::get('/edit-role', [App\Http\Controllers\AdminController::class, 'index'])->name('edit-role');
+
+//Route::get('/edita-role', [App\Http\Controllers\AdminController::class, 'indexupdate'])->name('edita-role');
+//Route::get('/editaa-role', [App\Http\Controllers\AdminController::class, 'update'])->name('editaa-role');
+
+
+
+
 
 
 
