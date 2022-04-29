@@ -24,7 +24,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 @guest
-
+                
                 @else
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
@@ -43,28 +43,7 @@
                         </li>
                     </ul>
                 @endguest
-                
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                @else
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home')}}" role="button">{{ __('Inici') }}</a></li> 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home')}}" role="button">Reserva d'habitacions</a></li> 
-                        <li class="nav-item dropdown">
-                            <a id="hola" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{_('Restaurant') }}        
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="hola">
-                                        <a class="dropdown-item" href="{{ route('edit') }}">{{ __('Menu del dia') }}</a>
-                                        <a class="dropdown-item" href="{{ route('edita_pass') }}">{{ __('carta') }}</a>
-                            </div> 
-                        </li>
-                    </ul>
-                @endguest
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
                         @guest
@@ -80,13 +59,16 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                @if(Auth::user()->image)
+                        @if(Auth::user()->image)
                                     <img src="{{ route('avatar', ['filename'=>Auth::user()->image])}}" class="avatar" height="30px" width="35px" style="border-radius: 50%;">
                                 @endif
-                                    {{ Auth::user()->name }}
-                                    
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+                                
+                                
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('edit') }}">
                                         {{ __('Editar Perfil') }}
                                     </a>
