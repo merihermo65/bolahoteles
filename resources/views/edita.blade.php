@@ -58,7 +58,9 @@
                                 @enderror
                             </div>
                         </div>
+                        @if(Auth::user()->image)
                         <!--IMATGE--><img src="{{ route('avatar', ['filename'=>Auth::user()->image])}}" class="avatar2">
+                        @endif
                         <div class="row mb-3">
                             <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('Image') }}</label>
 

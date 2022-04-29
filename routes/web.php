@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -59,3 +60,16 @@ Route::put('/imgnovaa', [App\Http\Controllers\ImageController::class, 'penjaimg'
 
 
 Route::get('/image/{filename}', [App\Http\Controllers\UserController::class, 'getimage'])->name('avatar');
+
+
+//Reserva
+
+Route::get('/res', [App\Http\Controllers\ReservaController::class, 'index'])->name('reserva');
+//enlace pocho, como he comentado en el drive
+Route::get('/res-exemple', [App\Http\Controllers\ReservaController::class, 'index2'])->name('res');
+
+//Restaurant
+
+Route::get('/menu-dia', [App\Http\Controllers\RestaurantController::class, 'menu'])->name('menu');
+
+Route::get('/carta', [App\Http\Controllers\RestaurantController::class, 'carta'])->name('carta');
