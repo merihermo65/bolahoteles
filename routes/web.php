@@ -73,3 +73,5 @@ Route::get('/res-exemple', [App\Http\Controllers\ReservaController::class, 'inde
 Route::get('/menu-dia', [App\Http\Controllers\RestaurantController::class, 'menu'])->name('menu');
 
 Route::get('/carta', [App\Http\Controllers\RestaurantController::class, 'carta'])->name('carta');
+
+holiiiiiiiiiiiiis :D
