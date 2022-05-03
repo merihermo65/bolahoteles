@@ -90,7 +90,7 @@
                                     @endif
 
                                     @if(Auth::user()->role == 'chef')
-                                        <a class="dropdown-item" href="{{ route('home') }}">
+                                        <a class="dropdown-item" href="{{ route('plat') }}">
                                             {{ __('Crear plato') }}
                                         </a>
                                     @endif 

@@ -27,6 +27,12 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/post.avatar/{filename}', [App\Http\Controllers\AdminController::class, 'getavatar'])->name('getavatar');
 
+Route::get('/entr/{filename}', [App\Http\Controllers\CartaController::class, 'getimageE'])->name('getimageEE');
+
+Route::get('/prim/{filename}', [App\Http\Controllers\CartaController::class, 'getimagePP'])->name('getimagePP');
+
+Route::get('/postre/{filename}', [App\Http\Controllers\CartaController::class, 'getimageP'])->name('getimageP');
+
 
 
 
@@ -72,4 +78,8 @@ Route::get('/resS', [App\Http\Controllers\ReservaController::class, 'index2'])->
 
 Route::get('/menu-dia', [App\Http\Controllers\RestaurantController::class, 'menu'])->name('menu');
 
-Route::get('/carta', [App\Http\Controllers\RestaurantController::class, 'carta'])->name('carta');
+Route::get('/carta', [App\Http\Controllers\CartaController::class, 'show'])->name('carta');
+
+Route::get('/crea_plat', [App\Http\Controllers\CartaController::class, 'index'])->name('plat');
+
+Route::put('/crear', [App\Http\Controllers\CartaController::class, 'update'])->name('crear');

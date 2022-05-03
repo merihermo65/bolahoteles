@@ -47,6 +47,24 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        'entrantes' => [
+            'driver' => 'local',
+            'root' => storage_path('app/entrantes'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+        'primer' => [
+            'driver' => 'local',
+            'root' => storage_path('app/primer'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+        'postre' => [
+            'driver' => 'local',
+            'root' => storage_path('app/postre'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',
