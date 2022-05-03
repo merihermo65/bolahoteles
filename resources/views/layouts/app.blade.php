@@ -29,16 +29,25 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home')}}" role="button">{{ __('Inici') }}</a></li> 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home')}}" role="button">Reserva d'habitacions</a></li> 
+                
+                        <li class="nav-item dropdown">
+                            <a id="reservartaula" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{_('Reservar taula') }}        
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="hola">
+                                <!--CAL EDITAR LES RUTES I CREAR RUTES NOVES QUE COMPLEIXIN LA FUNCIÓ QUE TOCA-->
+                                        <a class="dropdown-item" href="{{ route('reservaDinar') }}">{{ __('Dinar') }}</a>
+                                        <a class="dropdown-item" href="{{ route('reservaSopar') }}">{{ __('Sopar') }}</a>
+                            </div> 
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="hola" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{_('Restaurant') }}        
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="hola">
                                 <!--CAL EDITAR LES RUTES I CREAR RUTES NOVES QUE COMPLEIXIN LA FUNCIÓ QUE TOCA-->
-                                        <a class="dropdown-item" href="{{ route('home') }}">{{ __('Menu del dia') }}</a>
-                                        <a class="dropdown-item" href="{{ route('home') }}">{{ __('Carta') }}</a>
+                                        <a class="dropdown-item" href="{{ route('menu') }}">{{ __('Menu del dia') }}</a>
+                                        <a class="dropdown-item" href="{{ route('carta') }}">{{ __('Carta') }}</a>
                             </div> 
                         </li>
                     </ul>

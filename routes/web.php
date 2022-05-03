@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -43,7 +44,7 @@ Route::get('/editpass', [App\Http\Controllers\UserController::class, 'updatepass
 Route::get('/edit-role', [App\Http\Controllers\AdminController::class, 'index'])->name('edit-role');
 
 //Route::get('/edita-role', [App\Http\Controllers\AdminController::class, 'indexupdate'])->name('edita-role');
-//Route::get('/editaa-role', [App\Http\Controllers\AdminController::class, 'update'])->name('editaa-role');
+Route::get('/editaa-role/{filename}', [App\Http\Controllers\AdminController::class, 'update'])->name('editaa-role');
 
 
 
@@ -59,3 +60,16 @@ Route::put('/imgnovaa', [App\Http\Controllers\ImageController::class, 'penjaimg'
 
 
 Route::get('/image/{filename}', [App\Http\Controllers\UserController::class, 'getimage'])->name('avatar');
+
+
+//Reserva
+
+Route::get('/resD', [App\Http\Controllers\ReservaController::class, 'index'])->name('reservaDinar');
+//enlace pocho, como he comentado en el drive
+Route::get('/resS', [App\Http\Controllers\ReservaController::class, 'index2'])->name('reservaSopar');
+
+//Restaurant
+
+Route::get('/menu-dia', [App\Http\Controllers\RestaurantController::class, 'menu'])->name('menu');
+
+Route::get('/carta', [App\Http\Controllers\RestaurantController::class, 'carta'])->name('carta');

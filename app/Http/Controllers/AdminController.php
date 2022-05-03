@@ -29,7 +29,7 @@ class AdminController extends Controller
         $user=\Auth::user();
         $users = User::wherenot('id',$user->id)->paginate(10);
         
-        return view('edit-role',compact('users'))->with('users', $users);
+        return view('edit-role',compact('users'))->with('users', $users)->with(['a'=>""]);
     }
 
 
@@ -55,24 +55,29 @@ class AdminController extends Controller
         return view('edita-role')->with(['a'=>""]);
     }
     
-    public function update(Request $request)
+    public function update(Request $request, $id)
 {
+    $users2= User::all();
+
     $user=\Auth::user();
-    $id =\Auth::user()->id;
-    
-    
-    
-    $role=$request->input('role');
+    $users = User::wherenot('id',$user->id)->paginate(10);
 
-    $validate=$this->validate($request,[
-        'role'=>['required','string','max:255'],
-    ]);
+        foreach($users2 as $user2){
+            if($id==$user2->id){
+                $role=$request->get('role');
+
+                $validate=$this->validate($request,[
+                    'role'=>['required','string','max:255'],
+                ]);
 
 
-    $user->role=$role;
+                $user2->role=$role;
 
-    $user->update();
-    return view('edita-role')->with(['a'=>"S'ha editat correctament"]);
+                $user2->update();
+            }
+        };
+
+    return view('edit-role',compact('users'))->with('users', $users)->with(['a'=>"S'ha editat correctament"]);
 
 }
 }

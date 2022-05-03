@@ -13,14 +13,23 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    <p>{{$a}}</p>
                     @foreach($users as $user)
+                    <form action="{{ route('editaa-role', ['filename'=>$user->id]) }}" role="form">     
                     <div style="border-radius:5px; border: 5px solid rgb(184 143 42); background-color:rgb(203 159 46); border-bottom: 0;" class="card-header"> <div class="container-avatar">
                         <img src="{{ route('getavatar', ['filename'=>$user->id])}}" class="avatar">  {{$user->name}} {{$user->surname}} | {{$user->email}} | role: {{$user->role}}
-                        <button class="boton-roles btn-primary btn">Modificar rol</button>
+                        <div style="float: right;">
+                            <select style="float: left;" class="nav-link dropdown-toggle" name="role" id="role">
+                              <option value="admin">Admin</option>
+                              <option value="chef">Chef</option>
+                              <option value="user">User</option>
+                            </select>&nbsp;&nbsp;
+                            <input type="submit" class="boton-roles btn-primary btn" value="Modificar rol">
+                        </div>                     
                     
-                    
-                    </div> </div>
-                    
+                    </div> 
+                    </div>
+                    </form>
                     @endforeach
 
                     
