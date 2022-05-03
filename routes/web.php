@@ -27,6 +27,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/post.avatar/{filename}', [App\Http\Controllers\AdminController::class, 'getavatar'])->name('getavatar');
 
+Route::get('/post/{filename}', [App\Http\Controllers\HomeController::class, 'getimagee'])->name('getimagee');
 
 
 
@@ -37,7 +38,12 @@ Route::put('/edita', [App\Http\Controllers\UserController::class, 'update'])->na
 
 Route::get('/editpass', [App\Http\Controllers\UserController::class, 'updatepass'])->name('editpass');
 
+//imagenes carta
+Route::get('/entr/{filename}', [App\Http\Controllers\CartaController::class, 'getimageE'])->name('getimageEE');
 
+Route::get('/prim/{filename}', [App\Http\Controllers\CartaController::class, 'getimagePP'])->name('getimagePP');
+
+Route::get('/postre/{filename}', [App\Http\Controllers\CartaController::class, 'getimageP'])->name('getimageP');
 
 
 //EDITAR ROLES
@@ -46,17 +52,21 @@ Route::get('/edit-role', [App\Http\Controllers\AdminController::class, 'index'])
 //Route::get('/edita-role', [App\Http\Controllers\AdminController::class, 'indexupdate'])->name('edita-role');
 Route::get('/editaa-role/{filename}', [App\Http\Controllers\AdminController::class, 'update'])->name('editaa-role');
 
+//crear platos
+
+Route::get('/crea_plat', [App\Http\Controllers\CartaController::class, 'index'])->name('plat');
+
+Route::put('/crear', [App\Http\Controllers\CartaController::class, 'update'])->name('crear');
 
 
-
-
+Route::get('/carta', [App\Http\Controllers\CartaController::class, 'show'])->name('carta');
 
 
 //imgnova
 
-Route::get('/imgnova', [App\Http\Controllers\ImageController::class, 'penja'])->name('imgnova');
+Route::get('/imgnova', [App\Http\Controllers\EventoController::class, 'penja'])->name('imgnova');
 
-Route::put('/imgnovaa', [App\Http\Controllers\ImageController::class, 'penjaimg'])->name('imgnovaa');
+Route::put('/imgnovaa', [App\Http\Controllers\EventoController::class, 'penjaimg'])->name('imgnovaa');
 
 
 Route::get('/image/{filename}', [App\Http\Controllers\UserController::class, 'getimage'])->name('avatar');

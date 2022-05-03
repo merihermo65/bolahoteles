@@ -48,12 +48,6 @@ class AdminController extends Controller
         return new Response($file,200);
     }
 
-    /*estoy trabajando en esto */
-
-    public function indexupdate(Request $request)
-    {
-        return view('edita-role')->with(['a'=>""]);
-    }
     
     public function update(Request $request, $id)
 {

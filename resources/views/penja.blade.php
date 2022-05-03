@@ -27,12 +27,20 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="description"  class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
+                            <label for="title"  class="col-md-4 col-form-label text-md-end">{{ __('Title') }}</label>
 
                             <div class="col-md-6" >
-                                <textarea style="height: 75px;width: 340px;" id="description" type="text" class="form-control" name="description">
-                                </textarea></div>
+                                <input id="title" type="text" class="form-control" name="title">
+                            </div>
                         </div>
+
+                        <div class="row mb-3">
+                            <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Descripció') }}</label>
+
+                            <div class="col-md-6">
+                                <textarea class="form-control" id="description" name="description" ></textarea>
+                            </div>
+                    </div>
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">

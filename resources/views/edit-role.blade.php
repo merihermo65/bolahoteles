@@ -20,6 +20,7 @@
                         <img src="{{ route('getavatar', ['filename'=>$user->id])}}" class="avatar">  {{$user->name}} {{$user->surname}} | {{$user->email}} | role: {{$user->role}}
                         <div style="float: right;">
                             <select style="float: left;" class="nav-link dropdown-toggle" name="role" id="role">
+                              <option value="{{$user->role}}">--Selecciona una opció--</option>  
                               <option value="admin">Admin</option>
                               <option value="chef">Chef</option>
                               <option value="user">User</option>
