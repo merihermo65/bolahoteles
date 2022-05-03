@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Postre extends Model
+class Primerplato extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
-    
+    protected $table='primerplato';
 
     /**
      * The attributes that are mass assignable.

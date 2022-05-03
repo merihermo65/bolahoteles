@@ -82,4 +82,3 @@ Route::get('/resS', [App\Http\Controllers\ReservaController::class, 'index2'])->
 
 Route::get('/menu-dia', [App\Http\Controllers\RestaurantController::class, 'menu'])->name('menu');
 
-Route::get('/carta', [App\Http\Controllers\RestaurantController::class, 'carta'])->name('carta');
