@@ -83,11 +83,25 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  background-color: #f9f9e8;
+  /*background-color: #f9f9e8;*/
   background-image: url("../images/fusta.jpg");
 }
 
+.editorderole{
+  padding: 20px;
+  color:white;
+  border-radius:5px; 
+  border: 5px solid rgb(0, 0, 0); 
+  background-color:rgba(0, 0, 0, 0.282); 
+}
 
+.correcte{
+  border: solid 4px rgb(0, 0, 0);
+  background-color: rgb(164, 234, 164);
+  color:rgb(5, 98, 5);
+  text-align: center;
+  font-size: 20px;
+}
 
 .avatar{
   height: 40px;
@@ -2425,7 +2439,7 @@ textarea.form-control-lg {
   font-weight: 400;
   line-height: 1.6;
   color: #212529;
-  background-color: #f8fafc;
+  /*background-color: #f8fafc;*/
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
@@ -4528,7 +4542,7 @@ textarea.form-control-lg {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #d2a430;
+  /*background-color: #d2a430;*/
   background-image: url("../images/fusta2.jpg");
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
@@ -4562,7 +4576,7 @@ textarea.form-control-lg {
   flex: 1 1 auto;
   padding: 1rem 1rem;
   background-color: rgb(228, 194, 140);
-  /*background-image: url("../images/mantel.jpg");*/
+  background-image: url("../images/corcho.jpg");
 }
 
 .card-body2 {
@@ -4868,14 +4882,14 @@ textarea.form-control-lg {
 .page-item.active .page-link {
   z-index: 3;
   color: white;
-  background-color: #b88f2a;
-  border-color: #b88f2a;
+  background-color: black;
+  border-color: black;
 }
 .page-item.disabled .page-link {
   color: black;
   pointer-events: none;
-  background-color: #ad9e86;
-  border-color: #b88f2a;
+  background-color: #d4d4d4e8;
+  border-color: black;
 }
 
 .page-link {
@@ -7886,7 +7900,7 @@ textarea.form-control-lg {
 
 .bg-white {
   --bs-bg-opacity: 1;
-  background-color: #d2a430;
+  /*background-color: #d2a430;*/
   background-image: url("../images/fusta2.jpg");
 }
 
@@ -11657,6 +11671,7 @@ svg {
           animation-delay: 2s;
 }
 
+
 @-webkit-keyframes move-1 {
   0% {
     transform: translate(0, 0);
@@ -11906,4 +11921,126 @@ h2{
   color:white;
   font: 900 35px Montserrat;
   letter-spacing: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body .footer {
+  z-index: 1;
+  --footer-background: black;
+  display: grid;
+  position: relative;
+  grid-area: footer;
+  min-height: 12rem;
+}
+body .footer .bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1rem;
+  background: var(--footer-background);
+  filter: url("#blob");
+}
+body .footer .bubbles .bubble {
+  position: absolute;
+  left: var(--position, 50%);
+  background: var(--footer-background);
+  border-radius: 100%;
+  -webkit-animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+          animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+  transform: translate(-50%, 100%);
+}
+body .footer .content {
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 4rem;
+  padding: 2rem;
+  background: var(--footer-background);
+}
+body .footer .content a,
+body .footer .content p {
+  color: #f5f7fa;
+  text-decoration: none;
+}
+body .footer .content b {
+  color: white;
+}
+body .footer .content p {
+  margin: 0;
+  font-size: 0.75rem;
+}
+body .footer .content > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+body .footer .content > div > div {
+  margin: 0.25rem 0;
+}
+body .footer .content > div > div > * {
+  margin-right: 0.5rem;
+}
+body .footer .content > div .image {
+  align-self: center;
+  width: 4rem;
+  height: 4rem;
+  margin: 0.25rem 0;
+  background-size: cover;
+  background-position: center;
+}
+
+@-webkit-keyframes bubble-size {
+  0%, 75% {
+    width: var(--size, 4rem);
+    height: var(--size, 4rem);
+  }
+  100% {
+    width: 0rem;
+    height: 0rem;
+  }
+}
+
+@keyframes bubble-size {
+  0%, 75% {
+    width: var(--size, 4rem);
+    height: var(--size, 4rem);
+  }
+  100% {
+    width: 0rem;
+    height: 0rem;
+  }
+}
+@-webkit-keyframes bubble-move {
+  0% {
+    bottom: -4rem;
+  }
+  100% {
+    bottom: var(--distance, 10rem);
+  }
+}
+@keyframes bubble-move {
+  0% {
+    bottom: -4rem;
+  }
+  100% {
+    bottom: var(--distance, 10rem);
+  }
 }

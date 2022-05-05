@@ -26,15 +26,23 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $user=\Auth::user();
-        $users = User::wherenot('id',$user->id)->paginate(10);
+        $rol =\Auth::user()->role;
         
-        return view('edit-role',compact('users'))->with('users', $users)->with(['a'=>""]);
+        if($rol == 'admin'){
+            $user=\Auth::user();
+            $users = User::wherenot('id',$user->id)->paginate(10);
+            
+            return view('edit-role',compact('users'))->with('users', $users)->with(['a'=>""]);
+        }
+        else{
+            return view('error');
+        }
     }
 
 
     public function getavatar($id)
     {
+        
         $users= User::all();
 
         foreach($users as $user){
@@ -46,32 +54,42 @@ class AdminController extends Controller
         
         $file=Storage::disk('users')->get($filename);
         return new Response($file,200);
+
+        
     }
 
     
     public function update(Request $request, $id)
 {
-    $users2= User::all();
+    $rol =\Auth::user()->role;
+    
+    if($rol == 'admin'){
+        $users2= User::all();
 
-    $user=\Auth::user();
-    $users = User::wherenot('id',$user->id)->paginate(10);
-
-        foreach($users2 as $user2){
-            if($id==$user2->id){
-                $role=$request->get('role');
-
-                $validate=$this->validate($request,[
-                    'role'=>['required','string','max:255'],
-                ]);
-
-
-                $user2->role=$role;
-
-                $user2->update();
-            }
-        };
-
-    return view('edit-role',compact('users'))->with('users', $users)->with(['a'=>"S'ha editat correctament"]);
+        $user=\Auth::user();
+        $users = User::wherenot('id',$user->id)->paginate(10);
+    
+            foreach($users2 as $user2){
+                if($id==$user2->id){
+                    $role=$request->get('role');
+    
+                    $validate=$this->validate($request,[
+                        'role'=>['required','string','max:255'],
+                    ]);
+    
+    
+                    $user2->role=$role;
+    
+                    $user2->update();
+                }
+            };
+    
+        return view('edit-role',compact('users'))->with('users', $users)->with(['a'=>"S'ha editat correctament"]);
+    }
+    else{
+        return view('error');
+    }
+    
 
 }
 }

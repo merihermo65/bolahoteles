@@ -22,34 +22,51 @@ class EventoController extends Controller
 {
     public function penja(Request $request)
 {
-
+    $rol =\Auth::user()->role;
+        
+    if($rol == 'admin'){
         return view('penja')->with(['a'=>""]);
+    }
+    else{
+        return view('error');
+    }
+
+        
 }
 public function penjaimg(Request $request)
 {
     //$user=\Auth::user();
     //$id =\Auth::user()->id;
-    $new= new Evento();
-    
-    $title=$request->input('title');
-
-    $description=$request->input('description');
-    $image = $request->file('image');
-
-    $validate=$this->validate($request,[
-        'title'=>['required','string','max:255'],
-        'description'=>['required','string','max:255'],
-    ]);
-   if ($image){
-            $path=$image->store('eventos');
-            $filename = preg_replace('/^.+[\\\\\\/]/', '', $path);
-            $new->image=$filename;
-        }
+    $rol =\Auth::user()->role;
         
-    $new->title=$title;
-    $new->description=$description;    
-    $new->save();
-    return view('penja')->with(['a'=>"S'ha publicat correctament"]);
+    if($rol == 'admin'){
+        $new= new Evento();
+    
+        $title=$request->input('title');
+    
+        $description=$request->input('description');
+        $image = $request->file('image');
+    
+        $validate=$this->validate($request,[
+            'title'=>['required','string','max:255'],
+            'description'=>['required','string','max:255'],
+        ]);
+       if ($image){
+                $path=$image->store('eventos');
+                $filename = preg_replace('/^.+[\\\\\\/]/', '', $path);
+                $new->image=$filename;
+            }
+            
+        $new->title=$title;
+        $new->description=$description;    
+        $new->save();
+        return view('penja')->with(['a'=>"S'ha publicat correctament"]);
+    }    
+    else{
+        return view('error');
+    }
+
+
 
 }
 

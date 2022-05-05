@@ -62,6 +62,15 @@ Route::put('/crear', [App\Http\Controllers\CartaController::class, 'update'])->n
 Route::get('/carta', [App\Http\Controllers\CartaController::class, 'show'])->name('carta');
 
 
+//crear menu
+
+Route::get('/crea_menu', [App\Http\Controllers\MenuController::class, 'index'])->name('dia');
+
+Route::put('/Menu_created', [App\Http\Controllers\MenuController::class, 'update'])->name('crearM');
+
+Route::get('/menu-dia', [App\Http\Controllers\MenuController::class, 'show'])->name('menu');
+
+
 //imgnova
 
 Route::get('/imgnova', [App\Http\Controllers\EventoController::class, 'penja'])->name('imgnova');
@@ -80,5 +89,5 @@ Route::get('/resS', [App\Http\Controllers\ReservaController::class, 'index2'])->
 
 //Restaurant
 
-Route::get('/menu-dia', [App\Http\Controllers\RestaurantController::class, 'menu'])->name('menu');
+
 

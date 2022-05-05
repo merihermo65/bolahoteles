@@ -38,78 +38,94 @@ class CartaController extends Controller
      */
     public function index()
     {
-        return view('plat');
+        $rol =\Auth::user()->role;
+        
+        if($rol == 'chef'){
+            return view('plat');
+        }
+        else{
+            return view('error');
+        }
+        
     }
 
     public function update(Request $request){
         
-        $name=$request->input('name');
-        $desc=$request->input('description');
-        $tipus=$request->get('plat');
-        $image_path = $request->file('image');
-        $preu = $request->input('preu');
+        $rol =\Auth::user()->role;
+        
+        if($rol == 'chef'){
+            $name=$request->input('name');
+            $desc=$request->input('description');
+            $tipus=$request->get('plat');
+            $image_path = $request->file('image');
+            $preu = $request->input('preu');
+        
+            $validate=$this->validate($request,[
+                'name'=>['required','string','max:255'],
+                'description'=>['required','string','max:255'],
+            ]);
     
-        $validate=$this->validate($request,[
-            'name'=>['required','string','max:255'],
-            'description'=>['required','string','max:255'],
-        ]);
-
-
-
-        if($tipus == 'entrant'){
-            $entrant = New Entrante();
-
-            $entrant->name=$name;
-            $entrant->description=$desc;
-            $entrant->precio=$preu;
-
-            if ($image_path){
-                $path=$image_path->store('entrantes');
-                $filename = preg_replace('/^.+[\\\\\\/]/', '', $path);
-                $entrant->image=$filename;
+    
+            if($tipus == 'entrant'){
+                $entrant = New Entrante();
+    
+                $entrant->name=$name;
+                $entrant->description=$desc;
+                $entrant->precio=$preu;
+    
+                if ($image_path){
+                    $path=$image_path->store('entrantes');
+                    $filename = preg_replace('/^.+[\\\\\\/]/', '', $path);
+                    $entrant->image=$filename;
+                }
+        
+                $entrant->save();
+    
+                return view('plat');
+    
             }
+            elseif($tipus == 'primer plat'){
+                $primer = new Primerplato();
     
-            $entrant->save();
-
-            return view('plat');
-
-        }
-        elseif($tipus == 'primer plat'){
-            $primer = new Primerplato();
-
-            $primer->name=$name;
-            $primer->description=$desc;
-            $primer->precio=$preu;
-
-            if ($image_path){
-                $path=$image_path->store('primer');
-                $filename = preg_replace('/^.+[\\\\\\/]/', '', $path);
-                $primer->image=$filename;
+                $primer->name=$name;
+                $primer->description=$desc;
+                $primer->precio=$preu;
+    
+                if ($image_path){
+                    $path=$image_path->store('primer');
+                    $filename = preg_replace('/^.+[\\\\\\/]/', '', $path);
+                    $primer->image=$filename;
+                }
+        
+                $primer->save();
+    
+                return view('plat');
+    
             }
+            elseif($tipus == 'postre'){
+                $postre = new Postre();
     
-            $primer->save();
-
-            return view('plat');
-
-        }
-        elseif($tipus == 'postre'){
-            $postre = new Postre();
-
-            $postre->name=$name;
-            $postre->description=$desc;
-            $postre->precio=$preu;
-
-            if ($image_path){
-                $path=$image_path->store('postre');
-                $filename = preg_replace('/^.+[\\\\\\/]/', '', $path);
-                $postre->image=$filename;
+                $postre->name=$name;
+                $postre->description=$desc;
+                $postre->precio=$preu;
+    
+                if ($image_path){
+                    $path=$image_path->store('postre');
+                    $filename = preg_replace('/^.+[\\\\\\/]/', '', $path);
+                    $postre->image=$filename;
+                }
+        
+                $postre->save();
+    
+                return view('plat');
+    
             }
-    
-            $postre->save();
-
-            return view('plat');
-
         }
+        else{
+            return view('error');
+        }
+
+
         
     }
 
