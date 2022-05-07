@@ -13,12 +13,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    <p class="correcte">{{$a}}</p>
 
                     <form method="GET" action="{{ route('editpass') }}">
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('New Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end txt-form2">{{ __('New Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -32,7 +33,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm New Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end txt-form2">{{ __('Confirm New Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -41,13 +42,13 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button id="gooey-button" style="font-size: 10px;letter-spacing: 2px;" type="submit" class="btn btn-primary">
                                     {{ __('Editar') }}
                                 </button>
-                                <p>{{$a}}</p>
+                               
                             </div>
                         </div>
-                    </form>
+                    </form><p class="correcte"></p>
                 </div>
             </div>
         </div>

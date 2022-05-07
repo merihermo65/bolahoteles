@@ -13,13 +13,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    <p class="correcte">{{$a}}</p>
                     <form action="{{ route('edita') }}" role="form" enctype="multipart/form-data" method="POST" >
                         <input type="hidden" name="_method" value="PUT">
                             {!! csrf_field() !!}
-                            
+                        
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end txt-form">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ Auth::user()->name }}" required autocomplete="name" autofocus>
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="surname" class="col-md-4 col-form-label text-md-end">{{ __('Surname') }}</label>
+                            <label for="surname" class="col-md-4 col-form-label text-md-end txt-form">{{ __('Surname') }}</label>
 
                             <div class="col-md-6">
                                 <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ Auth::user()->surname }}" required autocomplete="surname" autofocus>
@@ -46,7 +46,7 @@
                         </div>
                         
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end txt-form">{{ __('Email') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ Auth::user()->email }}" required autocomplete="email" autofocus>
@@ -62,7 +62,7 @@
                         <!--IMATGE--><img src="{{ route('avatar', ['filename'=>Auth::user()->image])}}" class="avatar2">
                         @endif
                         <div class="row mb-3">
-                            <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('Image') }}</label>
+                            <label for="image" class="col-md-4 col-form-label text-md-end txt-form">{{ __('Image') }}</label>
 
                             <div class="col-md-6">
                                 <input id="image" type="file" class="form-control"  name="image" value="{{ old('image') }}" accept="image/*">
@@ -78,16 +78,16 @@
                         <!--------------->
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button id="gooey-button" style="font-size: 10px;letter-spacing: 2px;" type="submit" class="btn btn-primary">
                                     {{ __('Editar') }}
                                 </button>
                                 <a class="btn btn-link" href="{{ route('editpass') }}">
                                  {{ __('Edit password') }}
                              </a>
-                                <p>{{$a}}</p>
+                             
                             </div>
                         </div>
-                    </form>
+                    </form><p class="correcte"></p>
                 </div>
             </div>
         </div>

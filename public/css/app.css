@@ -85,6 +85,10 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   /*background-color: #f9f9e8;*/
   background-image: url("../images/fusta.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 }
 
 .editorderole{
@@ -2242,9 +2246,9 @@ progress {
 .form-control:focus {
   color: #212529;
   background-color: #f6eed0;
-  border-color: #f9d553;
+  border-color: #000000;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem #534309bd;
+  box-shadow: 0 0 0 0.25rem #000000bd;
 }
 .form-control::-webkit-date-and-time-value {
   height: 1.6em;
@@ -3496,11 +3500,11 @@ textarea.form-control-lg {
 
 .btn-link {
   font-weight: 400;
-  color: #57440f;
+  color: #ffffff;
   text-decoration: underline;
 }
 .btn-link:hover {
-  color: #48380d;
+  color: #c4c4c4;
 }
 .btn-link:disabled, .btn-link.disabled {
   color: #6c757d;
@@ -4853,8 +4857,8 @@ textarea.form-control-lg {
   display: block;
   color: black;
   text-decoration: none;
-  background-color: #e4c28c;
-  border: 1px solid #b88f2a;
+  background-color: #f3f3f3d1;
+  border: 1px solid black;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -12043,4 +12047,72 @@ body .footer .content > div .image {
   100% {
     bottom: var(--distance, 10rem);
   }
+<<<<<<< Updated upstream
+=======
+}
+
+
+
+
+.menu-back{
+  background: url('../images/fondopapel2.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.menu{
+  font-family: Georgia, serif;
+  font-size: 20px;
+  color:black;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.cartac{
+  font-family: Georgia, serif;
+  font-size: 20px;
+  color:black;
+  text-align: center;
+}
+
+.detalles{
+  font-size: 10px;
+}
+
+.tmenu{
+  margin-left:200px;
+  margin-right: 200px;
+  text-align: center; 
+  color:white;
+  background-color: #000;
+}
+
+
+
+.txt-form{
+  background-color: #000;
+  text-align: center;
+  color:white;
+  width: 84px;
+  margin-left: 253px;
+}
+
+.txt-form2{
+  background-color: #000;
+  text-align: center;
+  color:white;
+  width: 184px;
+  margin-left: 153px;
+}
+
+.txt-form3{
+  background-color: #000;
+  text-align: center;
+  color:white;
+  width: 104px;
+  margin-left: 233px;
+>>>>>>> Stashed changes
 }
