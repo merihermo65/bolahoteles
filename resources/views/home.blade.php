@@ -25,7 +25,7 @@
             </defs>
         </svg>
         
-        <a id="gooey-button" href="{{ route('reservaDinar') }}">
+        <a id="gooey-button" href="{{ route('reserva') }}">
             Reservar Taula
             <span class="bubbles">
                 <span class="bubble"></span>

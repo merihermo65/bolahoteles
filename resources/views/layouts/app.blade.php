@@ -30,15 +30,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home')}}" role="button">{{ __('Inici') }}</a></li> 
                 
-                        <li class="nav-item dropdown">
-                            <a id="reservartaula" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="reservartaula" class="nav-link" href="{{ route('reserva') }}" role="button">
                                 {{_('Reservar taula') }}        
                             </a>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="hola">
-                                <!--CAL EDITAR LES RUTES I CREAR RUTES NOVES QUE COMPLEIXIN LA FUNCIÓ QUE TOCA-->
-                                        <a class="dropdown-item" href="{{ route('reservaDinar') }}">{{ __('Dinar') }}</a>
-                                        <a class="dropdown-item" href="{{ route('reservaSopar') }}">{{ __('Sopar') }}</a>
-                            </div> 
+                            
                         </li>
                         <li class="nav-item dropdown">
                             <a id="hola" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

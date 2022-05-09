@@ -83,9 +83,10 @@ Route::get('/image/{filename}', [App\Http\Controllers\UserController::class, 'ge
 
 //Reserva
 
-Route::get('/resD', [App\Http\Controllers\ReservaController::class, 'index'])->name('reservaDinar');
-//enlace pocho, como he comentado en el drive
-Route::get('/resS', [App\Http\Controllers\ReservaController::class, 'index2'])->name('reservaSopar');
+Route::get('/res', [App\Http\Controllers\ReservaController::class, 'index'])->name('reserva');
+Route::get('/res2', [App\Http\Controllers\ReservaController::class, 'index2'])->name('reserva2');
+
+
 
 //Restaurant
 

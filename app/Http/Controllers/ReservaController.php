@@ -23,11 +23,7 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        return view('reserva');
+        return view('reserva')->with(['a'=>""]);
     }
 
-    public function index2()
-    {
-        return view('reserva');
-    }
 }
