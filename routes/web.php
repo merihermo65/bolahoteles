@@ -84,7 +84,7 @@ Route::get('/image/{filename}', [App\Http\Controllers\UserController::class, 'ge
 //Reserva
 
 Route::get('/res', [App\Http\Controllers\ReservaController::class, 'index'])->name('reserva');
-Route::get('/res2', [App\Http\Controllers\ReservaController::class, 'index2'])->name('reserva2');
+Route::get('/res2', [App\Http\Controllers\ReservaController::class, 'reserva'])->name('reserva2');
 
 
 

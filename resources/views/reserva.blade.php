@@ -21,23 +21,23 @@
                             
 
                         <div class="row mb-3">
-                            <label for="tor" class="col-md-4 col-form-label text-md-end txt-form2" style="font-size:17px">{{ __('Torn') }}</label>
+                            <label for="tor" class="col-md-4 col-form-label text-md-end txt-form2" style="font-size:17px">{{ __('Turno') }}</label>
 
                             <div class="col-md-6">
                                 <!--Hacer un bucle for, con las habitaciones-->
-                                <select id="gooey-button" class="form-select" aria-label="Default">
-                                    <option value="dinar">Dinar</option>
-                                    <option value="sopar">Sopar</option>
+                                <select id="gooey-button" class="form-select" aria-label="Default" name="turno">
+                                    <option value="Comida">Comida</option>
+                                    <option value="Cena">Cena</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="per" class="col-md-4 col-form-label text-md-end txt-form2" style="font-size:17px">{{ __('Numero de persones') }}</label>
+                            <label for="per" class="col-md-4 col-form-label text-md-end txt-form2" style="font-size:17px">{{ __('Numero de personas') }}</label>
 
                             <div class="col-md-6">
                                 <!--Hacer un bucle for, con las habitaciones-->
-                                <select id="gooey-button" class="form-select" aria-label="Default">
+                                <select id="gooey-button" class="form-select" aria-label="Default" name="personas">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>

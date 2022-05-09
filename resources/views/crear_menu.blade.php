@@ -19,11 +19,7 @@
                             
 
                         <div class="row mb-3">
-<<<<<<< Updated upstream
-                            <label for="ent" class="col-md-4 col-form-label text-md-end">{{ __('Entrantes') }}</label>
-=======
                             <label for="ent" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Entrantes') }}</label>
->>>>>>> Stashed changes
 
                             <div class="col-md-6">
                                 <select id="ent" class="form-select" aria-label="Default" name="ent">
@@ -35,11 +31,7 @@
                         </div>
 
                         <div class="row mb-3">
-<<<<<<< Updated upstream
-                            <label for="prim" class="col-md-4 col-form-label text-md-end">{{ __('Primer plato') }}</label>
-=======
                             <label for="prim" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Primer plato') }}</label>
->>>>>>> Stashed changes
 
                             <div class="col-md-6">
                                 <select id="prim" class="form-select" aria-label="Default" name="prim">
