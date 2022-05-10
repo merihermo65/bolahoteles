@@ -169,7 +169,8 @@ class ReservaController extends Controller
                 }
 
             }
-                return view('reserva')->with(['a'=>"S'ha reservat taula correctament"]);  
+                return redirect('/emailres');
+               //  
             }
             
             

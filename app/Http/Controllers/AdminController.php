@@ -6,6 +6,8 @@ use Illuminate\Http\Response;
 use App\Http\Controllers\Auth;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Reserva;
+
 
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -89,7 +91,65 @@ class AdminController extends Controller
     else{
         return view('error');
     }
-    
-
 }
+    public function reservestaules()
+        {
+            $rol =\Auth::user()->role;
+            
+            if($rol == 'admin'){
+                $user=\Auth::user();
+                $taules = Reserva::all();
+                
+                return view('edit-reserva')->with('taules', $taules)->with(['a'=>""]);
+            }
+            else{
+                return view('error');
+            }
+        }
+
+
+    public function updatereserva(Request $request, $id)
+        {
+            $rol =\Auth::user()->role;
+            
+            if($rol == 'admin'){
+                $taules= Reserva::all();
+            
+                    foreach($taules as $taula){
+                        if($id==$taula->id){
+                            $taula->usuario=NULL;
+                            $taula->reservat="FALSE";
+            
+                            $taula->update();
+                        }
+                    };
+            
+                return view('edit-reserva')->with('taules', $taules)->with(['a'=>"S'ha editat correctament"]);
+            }
+            else{
+                return view('error');
+            }
+        }
+
+        public function eliminareserva()
+        {
+            $rol =\Auth::user()->role;
+            
+            if($rol == 'admin'){
+                $taules= Reserva::all();
+            
+                    foreach($taules as $taula){
+                            $taula->usuario=NULL;
+                            $taula->reservat="FALSE";
+            
+                            $taula->update();
+                    };
+            
+                return view('edit-reserva')->with('taules', $taules)->with(['a'=>"S'ha editat correctament"]);
+            }
+            else{
+                return view('error');
+            }
+        }
+
 }

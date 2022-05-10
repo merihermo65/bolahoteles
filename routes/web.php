@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\ReservaMailable;
+use Illuminate\Support\Facades\Mail;
+
+
 
 
 /*
@@ -52,6 +56,15 @@ Route::get('/edit-role', [App\Http\Controllers\AdminController::class, 'index'])
 //Route::get('/edita-role', [App\Http\Controllers\AdminController::class, 'indexupdate'])->name('edita-role');
 Route::get('/editaa-role/{filename}', [App\Http\Controllers\AdminController::class, 'update'])->name('editaa-role');
 
+//EDITAR RESERVAS
+Route::get('/edit-reserva', [App\Http\Controllers\AdminController::class, 'reservestaules'])->name('edit-reserva');
+
+Route::get('/editaa-reserva/{filename}', [App\Http\Controllers\AdminController::class, 'updatereserva'])->name('editaa-reserva');
+
+Route::get('/elimina-reserva', [App\Http\Controllers\AdminController::class, 'eliminareserva'])->name('elimina-reserva');
+
+
+
 //crear platos
 
 Route::get('/crea_plat', [App\Http\Controllers\CartaController::class, 'index'])->name('plat');
@@ -88,7 +101,14 @@ Route::get('/res2', [App\Http\Controllers\ReservaController::class, 'reserva'])-
 
 
 
-//Restaurant
+//EMAIL
+
+Route::get('/emailres', function(){
+    $email =\Auth::user()->email;
+    $correo = new ReservaMailable;
+    Mail::to($email)->send($correo);
+    return view('reserva')->with(['a'=>"S'ha reservat taula correctament"]); 
+});
 
 
 

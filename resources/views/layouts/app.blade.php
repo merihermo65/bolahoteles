@@ -87,6 +87,9 @@
                                         <a class="dropdown-item" href="{{ route('edit-role') }}">
                                             {{ __('Modificar roles') }}
                                         </a>
+                                        <a class="dropdown-item" href="{{ route('edit-reserva') }}">
+                                            {{ __('Eliminar/Veure Reserves') }}
+                                        </a>
                                         <a class="dropdown-item" href="{{ route('imgnova') }}">
                                             {{ __('Penjar event') }}
                                             </a>
