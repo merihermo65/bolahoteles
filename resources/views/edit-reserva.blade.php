@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('EDITAR RESERVES') }}</div>
+                <div class="card-header">{{ __('Editar reservas') }}</div>
                 
                 <div class="card-body">
                     @if (session('status'))
@@ -21,7 +21,7 @@
                         @if($taula->reservat =="TRUE")
                             <div class="editorderole"> 
                                 <div class="container-avatar">
-                                    <p>{{$taula->id}} ********** TORN -> {{$taula->turno}} ********** MIDA TAULA -> {{$taula->tipo_mesa}} ********** USUARI -> {{$taula->usuario}}
+                                    <p>{{$taula->id}} ********** TURNO -> {{$taula->turno}} ********** MEDIDA MESA -> {{$taula->tipo_mesa}} ********** USUARIO -> {{$taula->usuario}}
                                         <input id="gooey-button" style="font-size: 10px;letter-spacing: 2px;background-color:rgb(254, 136, 136);color: rgb(156, 23, 23)" type="submit" class="boton-roles btn-primary btn" value="Eliminar Reserva">
 
                                     </p>  
@@ -32,7 +32,7 @@
                         @endif
                     </form>
                     @endforeach
-                    <a href="/elimina-reserva" id="gooey-button" style="right:40%;font-size: 10px;letter-spacing: 2px;background-color:rgb(254, 136, 136);color: rgb(156, 23, 23)" class="boton-roles btn-primary btn" >Eliminar totes les reserves</a>
+                    <a href="/elimina-reserva" id="gooey-button" style="right:40%;font-size: 10px;letter-spacing: 2px;background-color:rgb(254, 136, 136);color: rgb(156, 23, 23)" class="boton-roles btn-primary btn" >Eliminar todas las reservas</a>
                     <br>
                 </div>  
             <br>

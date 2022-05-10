@@ -19,7 +19,7 @@
                             {!! csrf_field() !!}
                             
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Nombre') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="" required autocomplete="name" autofocus>
@@ -33,21 +33,21 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="plat" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Nou Plat') }}</label>
+                            <label for="plat" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Nuevo Plato') }}</label>
 
                             <div class="col-md-6">
                                 <!--Hacer un bucle for, con las habitaciones-->
                                 <select id="plat" name="plat" class="form-select" aria-label="Default">
                                     <option value=""></option>
-                                    <option value="entrant">entrant</option>
-                                    <option value="primer plat">primer plat</option>
+                                    <option value="entrant">entrante</option>
+                                    <option value="primer plat">primer plato</option>
                                     <option value="postre">postre</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="description" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Descripció') }}</label>
+                            <label for="description" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Descripción') }}</label>
 
                             <div class="col-md-6">
                                 <textarea class="form-control" id="description" rows="3" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus></textarea>
@@ -55,7 +55,7 @@
                         </div>
                         
                         <div class="row mb-3">
-                            <label for="image" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Image') }}</label>
+                            <label for="image" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Imagen') }}</label>
 
                             <div class="col-md-6">
                                 <input id="image" type="file" class="form-control"  name="image" value="{{ old('image') }}" accept="image/*">
@@ -69,7 +69,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="preu" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Preu') }}</label>
+                            <label for="preu" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Precio') }}</label>
 
                             <div class="col-md-6">
                                 <input id="preu" type="number" class="form-control @error('name') is-invalid @enderror" name="preu" value="" required autofocus>
@@ -85,7 +85,7 @@
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary" id="gooey-button">
-                                    {{ __('Pujar plat') }}
+                                    {{ __('Crear plat') }}
                                 </button>
                             </div>
                         </div>
