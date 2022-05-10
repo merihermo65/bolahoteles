@@ -106,6 +106,13 @@ body {
   text-align: center;
   font-size: 20px;
 }
+.incorrecte{
+  border: solid 4px rgb(0, 0, 0);
+  background-color: rgb(234, 164, 164);
+  color:rgb(98, 5, 5);
+  text-align: center;
+  font-size: 20px;
+}
 
 .avatar{
   height: 40px;
@@ -12047,8 +12054,6 @@ body .footer .content > div .image {
   100% {
     bottom: var(--distance, 10rem);
   }
-<<<<<<< Updated upstream
-=======
 }
 
 
@@ -12114,5 +12119,5 @@ body .footer .content > div .image {
   color:white;
   width: 104px;
   margin-left: 233px;
->>>>>>> Stashed changes
 }
+

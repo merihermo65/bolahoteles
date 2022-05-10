@@ -22,15 +22,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class MenuController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
 
     public function index()
     {
@@ -51,10 +43,6 @@ class MenuController extends Controller
        
     }
 
-    public function menu()
-    {
-        return view('menu');
-    }
 
 
     public function update(Request $request){

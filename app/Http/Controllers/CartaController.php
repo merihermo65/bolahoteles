@@ -21,15 +21,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class CartaController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.

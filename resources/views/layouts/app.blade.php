@@ -23,12 +23,9 @@
     <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                @guest
-                
-                @else
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home')}}" role="button">{{ __('Inici') }}</a></li> 
+                            <a class="nav-link" href="{{ route('home')}}" role="button">{{ __('Inicio') }}</a></li> 
                 
                             <a id="reservartaula" class="nav-link" href="{{ route('reserva') }}" role="button">
                                 {{_('Reservar taula') }}        
@@ -43,15 +40,18 @@
                                 <!--CAL EDITAR LES RUTES I CREAR RUTES NOVES QUE COMPLEIXIN LA FUNCIÓ QUE TOCA-->
                                         <a class="dropdown-item" href="{{ route('menu') }}">{{ __('Menu del dia') }}</a>
                                         <a class="dropdown-item" href="{{ route('carta') }}">{{ __('Carta') }}</a>
-                                        @if(Auth::user()->role == 'chef')
-                                        <a class="dropdown-item" href="{{ route('dia') }}">
-                                            {{ __('Crear menu del dia') }}
-                                        </a>
+                                        @guest
+
+                                        @else
+                                            @if(Auth::user()->role == 'chef')
+                                            <a class="dropdown-item" href="{{ route('dia') }}">
+                                                {{ __('Crear menu del dia') }}
+                                            </a>
+                                        @endguest
                                     @endif 
                             </div> 
                         </li>
                     </ul>
-                @endguest
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
