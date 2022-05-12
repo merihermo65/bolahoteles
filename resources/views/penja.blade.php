@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('PENJAR EVENTS') }}</div>
+                <div class="card-header">{{ __('CREAR EVENTOS') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -19,7 +19,7 @@
                             {!! csrf_field() !!}
 
                         <div class="row mb-3">
-                            <label for="image" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Imatge') }}</label>
+                            <label for="image" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Imagen') }}</label>
 
                             <div class="col-md-6">
                                 <input id="image" type="file" accept="image/png, image/jpeg, image/PNG," class="form-control"  name="image" >
@@ -27,7 +27,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="title"  class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Title') }}</label>
+                            <label for="title"  class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Título') }}</label>
 
                             <div class="col-md-6" >
                                 <input id="title" type="text" class="form-control" name="title">
@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="description" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Descripció') }}</label>
+                            <label for="description" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Descripción') }}</label>
 
                             <div class="col-md-6">
                                 <textarea class="form-control" id="description" name="description" ></textarea>
@@ -45,7 +45,7 @@
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button  id="gooey-button" style="font-size: 10px;letter-spacing: 2px;" type="submit" class="btn btn-primary">
-                                    {{ __('Penjar') }}
+                                    {{ __('Subir') }}
                                 </button>
                         
                             </div>

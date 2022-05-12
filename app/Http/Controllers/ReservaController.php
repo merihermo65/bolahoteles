@@ -62,7 +62,7 @@ class ReservaController extends Controller
                     
                     }
                     else{
-                        return view('reserva',['site'=>'error'])->with(['a'=>"No hi ha taules disponibles :("]);                
+                        return view('reserva',['site'=>'error'])->with(['a'=>"En este turno no hay mesas disponibles para la cantidad de personas seleccionada"]);                
                     }
 
 
@@ -83,7 +83,7 @@ class ReservaController extends Controller
                     
                     }
                     else{
-                        return view('reserva',['site'=>'error'])->with(['a'=>"No hi ha taules disponibles :("]);                
+                        return view('reserva',['site'=>'error'])->with(['a'=>"En este turno no hay mesas disponibles para la cantidad de personas seleccionada"]);                
                     }
                 }
                 elseif($per >4 && $per <=8){
@@ -102,7 +102,7 @@ class ReservaController extends Controller
                     
                     }
                     else{
-                        return view('reserva',['site'=>'error'])->with(['a'=>"No hi ha taules disponibles :("]);                
+                        return view('reserva',['site'=>'error'])->with(['a'=>"En este turno no hay mesas disponibles para la cantidad de personas seleccionada"]);                
                     }
 
                 }
@@ -126,7 +126,7 @@ class ReservaController extends Controller
                 
                 }
                 else{
-                    return view('reserva',['site'=>'error'])->with(['a'=>"No hi ha taules disponibles :("]);                
+                    return view('reserva',['site'=>'error'])->with(['a'=>"En este turno no hay mesas disponibles para la cantidad de personas seleccionada"]);                
                 }
 
             }
@@ -146,7 +146,7 @@ class ReservaController extends Controller
                 
                 }
                 else{
-                    return view('reserva',['site'=>'error'])->with(['a'=>"No hi ha taules disponibles :("]);                
+                    return view('reserva',['site'=>'error'])->with(['a'=>"En este turno no hay mesas disponibles para la cantidad de personas seleccionada"]);                
                 }
             }
             elseif($per >4 && $per <=8){
@@ -165,7 +165,7 @@ class ReservaController extends Controller
                 
                 }
                 else{
-                    return view('reserva',['site'=>'error'])->with(['a'=>"No hi ha taules disponibles :("]);                
+                    return view('reserva',['site'=>'error'])->with(['a'=>"En este turno no hay mesas disponibles para la cantidad de personas seleccionada"]);                
                 }
 
             }

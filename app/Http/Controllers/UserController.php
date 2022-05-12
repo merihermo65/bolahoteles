@@ -8,6 +8,8 @@ use Illuminate\Http\Response;
 use App\Http\Controllers\Auth;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Reserva;
+
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -55,7 +57,7 @@ class UserController extends Controller
         }
 
     $user->update();
-    return view('edita')->with(['a'=>"S'ha editat correctament"]);
+    return view('edita')->with(['a'=>"Se ha editado correctamente"]);
 
 }
     public function updatepass(Request $request)
@@ -75,7 +77,7 @@ class UserController extends Controller
 
     
         $user->update();
-        return view('editpass')->with(['a'=>"S'ha editat correctament"]);}
+        return view('editpass')->with(['a'=>"Se ha editado correctamente"]);}
         else{
             return view('editpass')->with(['a'=>""]);
         };
@@ -90,6 +92,37 @@ class UserController extends Controller
         $file=Storage::disk('users')->get($filename);
         return new Response($file,200);
     }
+
+
+    //reserves actives
+    public function verreserva()
+    {
+        $user=\Auth::user();
+        $email =\Auth::user()->email;
+        $taules = Reserva::all();
+        return view('ver-reserva')->with('taules', $taules)->with(['a'=>""]);
+
+    }
+
+
+    public function updateverreserva($id)
+        {
+            $user=\Auth::user();
+            $email =\Auth::user()->email;
+            $taules = Reserva::all();
+
+            foreach($taules as $taula){
+                if($id==$taula->id){
+                    $taula->usuario=NULL;
+                    $taula->reservat="FALSE";
+    
+                    $taula->update();
+                }
+            };
+        
+            return view('ver-reserva')->with('taules', $taules)->with(['a'=>"Se ha eliminado correctamente"]);
+
+        }
 
 
 }

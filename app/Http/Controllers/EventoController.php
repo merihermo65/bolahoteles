@@ -60,7 +60,7 @@ public function penjaimg(Request $request)
         $new->title=$title;
         $new->description=$description;    
         $new->save();
-        return view('penja')->with(['a'=>"S'ha publicat correctament"]);
+        return view('penja')->with(['a'=>"Se ha publicado correctamente"]);
     }    
     else{
         return view('error');

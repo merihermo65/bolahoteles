@@ -28,13 +28,13 @@
                             <a class="nav-link" href="{{ route('home')}}" role="button">{{ __('Inicio') }}</a></li> 
                 
                             <a id="reservartaula" class="nav-link" href="{{ route('reserva') }}" role="button">
-                                {{_('Reservar taula') }}        
+                                {{_('Reserva mesa') }}        
                             </a>
                             
                         </li>
                         <li class="nav-item dropdown">
                             <a id="hola" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{_('Restaurant') }}        
+                                {{_('Cartas') }}        
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="hola">
                                 <!--CAL EDITAR LES RUTES I CREAR RUTES NOVES QUE COMPLEIXIN LA FUNCIÓ QUE TOCA-->
@@ -64,7 +64,7 @@
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registro') }}</a>
                                 </li>
                             @endif
                         @else
@@ -88,10 +88,10 @@
                                             {{ __('Modificar roles') }}
                                         </a>
                                         <a class="dropdown-item" href="{{ route('edit-reserva') }}">
-                                            {{ __('Eliminar/Veure Reserves') }}
+                                            {{ __('Eliminar/Ver Reservas') }}
                                         </a>
                                         <a class="dropdown-item" href="{{ route('imgnova') }}">
-                                            {{ __('Penjar event') }}
+                                            {{ __('Crear evento') }}
                                             </a>
                                     @endif
 
@@ -100,6 +100,9 @@
                                             {{ __('Crear plato') }}
                                         </a>
                                     @endif 
+                                    <a class="dropdown-item" href="{{ route('verreserva') }}">
+                                        {{ __('Ver mis reservas activas') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

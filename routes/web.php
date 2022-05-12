@@ -99,6 +99,9 @@ Route::get('/image/{filename}', [App\Http\Controllers\UserController::class, 'ge
 Route::get('/res', [App\Http\Controllers\ReservaController::class, 'index'])->name('reserva');
 Route::get('/res2', [App\Http\Controllers\ReservaController::class, 'reserva'])->name('reserva2');
 
+Route::get('/verres', [App\Http\Controllers\UserController::class, 'verreserva'])->name('verreserva');
+Route::get('/verres2/{filename}', [App\Http\Controllers\UserController::class, 'updateverreserva'])->name('verreserva2');
+
 
 
 //EMAIL
@@ -107,7 +110,7 @@ Route::get('/emailres', function(){
     $email =\Auth::user()->email;
     $correo = new ReservaMailable;
     Mail::to($email)->send($correo);
-    return view('reserva')->with(['a'=>"S'ha reservat taula correctament"]); 
+    return view('reserva')->with(['a'=>"Se ha reservado correctamente"]); 
 });
 
 

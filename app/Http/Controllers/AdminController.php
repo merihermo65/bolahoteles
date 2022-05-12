@@ -86,7 +86,7 @@ class AdminController extends Controller
                 }
             };
     
-        return view('edit-role',compact('users'))->with('users', $users)->with(['a'=>"S'ha editat correctament"]);
+        return view('edit-role',compact('users'))->with('users', $users)->with(['a'=>"Se ha editado correctamente"]);
     }
     else{
         return view('error');
@@ -95,12 +95,13 @@ class AdminController extends Controller
     public function reservestaules()
         {
             $rol =\Auth::user()->role;
-            
+            $users= User::all();
+
             if($rol == 'admin'){
                 $user=\Auth::user();
                 $taules = Reserva::all();
                 
-                return view('edit-reserva')->with('taules', $taules)->with(['a'=>""]);
+                return view('edit-reserva')->with('taules', $taules)->with('users', $users)->with(['a'=>""]);
             }
             else{
                 return view('error');
@@ -111,7 +112,8 @@ class AdminController extends Controller
     public function updatereserva(Request $request, $id)
         {
             $rol =\Auth::user()->role;
-            
+            $users= User::all();
+
             if($rol == 'admin'){
                 $taules= Reserva::all();
             
@@ -124,7 +126,7 @@ class AdminController extends Controller
                         }
                     };
             
-                return view('edit-reserva')->with('taules', $taules)->with(['a'=>"S'ha editat correctament"]);
+                return view('edit-reserva')->with('taules', $taules)->with('users', $users)->with(['a'=>"Se ha editado correctamente"]);
             }
             else{
                 return view('error');
@@ -134,7 +136,8 @@ class AdminController extends Controller
         public function eliminareserva()
         {
             $rol =\Auth::user()->role;
-            
+            $users= User::all();
+
             if($rol == 'admin'){
                 $taules= Reserva::all();
             
@@ -145,7 +148,7 @@ class AdminController extends Controller
                             $taula->update();
                     };
             
-                return view('edit-reserva')->with('taules', $taules)->with(['a'=>"S'ha editat correctament"]);
+                return view('edit-reserva')->with('taules', $taules)->with('users', $users)->with(['a'=>"Se ha editado correctamente"]);
             }
             else{
                 return view('error');

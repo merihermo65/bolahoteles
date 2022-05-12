@@ -51,17 +51,17 @@
     </style>
 </head>
 <body>
-    <h1>RESTAURANT BOLA</h1>
-    <p>La taula s'ha reservat correctament</p>
+    <h1>RESTAURANTE BOLA</h1>
+    <p>La mesa se ha reservado correctamente</p>
 
-    <p>Estimat client, volem donar les gràcies per confiar en el nostre restaurant i esperem que la seva experiència sigui exepcional</p>
+    <p>Estimado cliente, queremos dar las gracias por confiar en nuestro restaurante y esperamos que su experiencia sea exepcional</p>
     <div class="horaris">
-        <p>Li recordem els horaris dels torns: </p>
-        <p>Dinars: de 13:00 -- 16:00</p>
-        <p>Sopars: de 20:00 -- 23:00</p>
+        <p>Le recordamos los horarios de los turnos: </p>
+        <p>Comidas: de 13:00 -- 16:00</p>
+        <p>Cenas: de 20:00 -- 23:00</p>
     </div>
-    <p>Bon profit!</p>
-    <p class="footer">&copy Restaurants bola</p>
+    <p>¡Buen provecho!</p>
+    <p class="footer">© Restaurantes bola</p>
     
 
 </body>

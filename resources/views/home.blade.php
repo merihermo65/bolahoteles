@@ -13,8 +13,8 @@
         <div class="hover hover-7"></div>
         <div class="hover hover-8"></div>
         <div class="hover hover-9"></div>
-        <h1>RESTAURANT BOLA</h1>
-        <p>Has resrevat ja la teva taula? <br> Clica aquí i reserva-la facil i ràpidament<br><br><br><br><br><br> <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <h1>RESTAURANTE BOLA</h1>
+        <p>Has reservado ya tu mesa? <br> ¡Clica aquí y haz la reserva, fácil y rápida!<br><br><br><br><br><br> <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
             <defs>
                 <filter id="gooey">
                     <!-- in="sourceGraphic" -->
@@ -26,7 +26,7 @@
         </svg>
         
         <a id="gooey-button" href="{{ route('reserva') }}">
-            Reservar Taula
+            Reservar Mesa
             <span class="bubbles">
                 <span class="bubble"></span>
                 <span class="bubble"></span>
@@ -50,7 +50,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8" style="padding-top: 20px;">
             <div class="card">
-                <div class="card-header">{{ __('Events Recents') }}</div>
+                <div class="card-header">{{ __('Eventos Recientes') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))

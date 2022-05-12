@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Editar reservas') }}</div>
+                <div class="card-header">{{ __('Mis reservas') }}</div>
                 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,13 +17,13 @@
                     <p class="correcte">{{$a}}</p>
                     <div class="paper">  
                     @foreach($taules as $taula)
-                    <form action="{{ route('editaa-reserva', ['filename'=>$taula->id]) }}" role="form">  
-                        @if($taula->reservat =="TRUE")
+                    <form action="{{ route('verreserva2', ['filename'=>$taula->id]) }}" role="form">  
+                        @if($taula->usuario == Auth::user()->email)
                             <div class="editorderole"> 
                                 <div class="container-avatar">
                                     <div>
                                             @if($taula->turno=='Cena') <img class="cena-res "> @else <img class="comida-res "> @endif 
-                                            Mesa número {{$taula->id}} reservada por @foreach($users as $user) @if($user->email == $taula->usuario) {{$user->name}} {{$user->surname}} @endif @endforeach
+                                            Mesa número {{$taula->id}} reservada por {{Auth::user()->name}} {{Auth::user()->surname}}
                                             <input id="gooey-button" style="font-size: 10px;letter-spacing: 2px;background-color:rgb(254, 136, 136);color: rgb(156, 23, 23); float: right;" type="submit" class="boton-roles btn-primary btn" value="Eliminar Reserva">
 
                                     </div>  
@@ -34,7 +34,6 @@
                         @endif
                     </form>
                     @endforeach
-                    <a href="/elimina-reserva" id="gooey-button" style="right:40%;font-size: 10px;letter-spacing: 2px;background-color:rgb(254, 136, 136);color: rgb(156, 23, 23)" class="boton-roles btn-primary btn" >Eliminar todas las reservas</a>
                     <br>
                 </div>  
             <br>
