@@ -9,15 +9,7 @@ use App\Models\Primerplato;
 
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Auth;
-use App\Providers\RouteServiceProvider;
-use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Illuminate\Support\Facades\DB;
 
 
 class MenuController extends Controller
@@ -51,19 +43,50 @@ class MenuController extends Controller
         
         if($rol == 'chef'){
             
-            $menu = Menu::first();
+            //$menu = Menu::first();
+            $menu1 = DB::table('menus')->where('id', 1)->get('*')->first();
+            $menu2 = DB::table('menus')->where('id', 2)->get('*')->first();
+            $menu3 = DB::table('menus')->where('id', 3)->get('*')->first();
+
 
             $ent=$request->get('ent');
             $prim=$request->get('prim');
             $postre=$request->get('postre');
 
-            $menu->entrante=$ent;
-            $menu->primer=$prim;
-            $menu->postre=$postre;
-            
-            $menu->update();
-            
-            return view('menu');   
+            $ent2=$request->get('ent2');
+            $prim2=$request->get('prim2');
+            $postre2=$request->get('postre2');
+
+            $ent3=$request->get('ent3');
+            $prim3=$request->get('prim3');
+            $postre3=$request->get('postre3');
+
+            if($menu1){
+                $m=Menu::all();
+                foreach ($m as $menu) {
+                    if($menu->id==$menu1->id){
+                        $menu->entrante=$ent;
+                        $menu->primer=$prim;
+                        $menu->postre=$postre;
+                        $menu->update();     
+                    }
+                    if($menu->id==$menu2->id){
+                        $menu->entrante=$ent2;
+                        $menu->primer=$prim2;
+                        $menu->postre=$postre2;
+                        $menu->update();     
+                    }
+                    if($menu->id==$menu3->id){
+                        $menu->entrante=$ent3;
+                        $menu->primer=$prim3;
+                        $menu->postre=$postre3;
+                        $menu->update();     
+                    }
+                }
+            }
+            $data = Menu::all();
+
+            return view('menu')->with('data', $data);;   
             
         }
         

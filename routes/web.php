@@ -49,6 +49,8 @@ Route::get('/prim/{filename}', [App\Http\Controllers\CartaController::class, 'ge
 
 Route::get('/postre/{filename}', [App\Http\Controllers\CartaController::class, 'getimageP'])->name('getimageP');
 
+Route::get('/vino/{filename}', [App\Http\Controllers\CartaController::class, 'getimageV'])->name('getimageV');
+
 
 //EDITAR ROLES
 Route::get('/edit-role', [App\Http\Controllers\AdminController::class, 'index'])->name('edit-role');
@@ -73,6 +75,15 @@ Route::put('/crear', [App\Http\Controllers\CartaController::class, 'update'])->n
 
 
 Route::get('/carta', [App\Http\Controllers\CartaController::class, 'show'])->name('carta');
+
+//Carta vinos
+
+Route::get('/crea_vi', [App\Http\Controllers\CartaController::class, 'index2'])->name('vi');
+
+Route::put('/afegir_vi', [App\Http\Controllers\CartaController::class, 'update2'])->name('af_vi');
+
+Route::get('/carta_vino', [App\Http\Controllers\CartaController::class, 'show2'])->name('carta_vi');
+
 
 
 //crear menu
@@ -103,15 +114,28 @@ Route::get('/verres', [App\Http\Controllers\UserController::class, 'verreserva']
 Route::get('/verres2/{filename}', [App\Http\Controllers\UserController::class, 'updateverreserva'])->name('verreserva2');
 
 
+//detail de plato de la carta
 
-//EMAIL
+Route::get('/detailE/{filename}', [App\Http\Controllers\CartaController::class, 'detailE'])->name('detailE');
+Route::get('/detailPP/{filename}', [App\Http\Controllers\CartaController::class, 'detailPP'])->name('detailPP');
+Route::get('/detailP/{filename}', [App\Http\Controllers\CartaController::class, 'detailP'])->name('detailP');
 
-Route::get('/emailres', function(){
-    $email =\Auth::user()->email;
-    $correo = new ReservaMailable;
-    Mail::to($email)->send($correo);
-    return view('reserva')->with(['a'=>"Se ha reservado correctamente"]); 
-});
+//contacte
+
+Route::get('/contact-form', [App\Http\Controllers\EmailController::class,'contacto'])->name('contact-form');
+
+Route::get('/emailres', [App\Http\Controllers\EmailController::class,'emailreserva'])->name('emailres');
+
+Route::get('/emailcon', [App\Http\Controllers\EmailController::class,'emailcontact'])->name('emailcon');
+
+
+
+//eliminar events
+
+
+Route::get('/veureevents', [App\Http\Controllers\AdminController::class, 'veureevents'])->name('veureevents');
+Route::get('/updateevent/{filename}', [App\Http\Controllers\AdminController::class, 'updateevent'])->name('updateevent');
+
 
 
 

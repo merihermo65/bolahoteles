@@ -60,8 +60,13 @@
                     @endif
                     @foreach($eventos as $evento)
                     <div style="border-radius:5px; border: 5px solid #402d15; background-color:#000000c9; border-bottom: 0;" class="card-header"> <div class="container-avatar">
-                    <h2>{{$evento->title}}</h2>
-                    
+                        <h2>{{$evento->title}} 
+                            @if (Auth::user())
+                                @if(Auth::user()->role == 'admin') 
+                                    <a href="{{ route('updateevent', ['filename'=>$evento->id]) }}" id="gooey-button" style="font-size: 10px;letter-spacing: 2px;background-color:rgb(254, 136, 136);color: rgb(156, 23, 23)" class="boton-roles btn-primary btn" >Eliminar</a>
+                                @endif 
+                            @endif 
+                        </h2>                    
                     </div> </div>
                         <div class="card-body2" style=" color:white; background-color:#3a291087; border-radius:5px; border: 5px solid #402d15; margin-bottom: 25px;">
                             @if ($evento->image)

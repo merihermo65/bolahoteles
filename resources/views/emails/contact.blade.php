@@ -52,15 +52,11 @@
 </head>
 <body>
     <h1>RESTAURANTE BOLA</h1>
-    <p>La mesa se ha reservado correctamente</p>
 
-    <p>Estimado/a {{Auth::user()->name}} {{Auth::user()->surname}}, queremos dar las gracias por confiar en nuestro restaurante y esperamos que su experiencia sea exepcional</p>    <div class="horaris">
-        <p>Le recordamos los horarios de los turnos: </p>
-        <p>Comidas: de 13:00 -- 16:00</p>
-        <p>Cenas: de 20:00 -- 23:00</p>
-    </div>
-    <p>Recuerde que la reserva solo es valida hoy</p>
-    <p>¡Buen provecho!</p>
+    <p>Mensaje de: {{Auth::user()->name}} {{Auth::user()->surname}}</p>
+    <p>Correo del usuario: {{Auth::user()->email}}</p>
+
+    <p>MENSAJE: {{$contacto['message']}}</p>
     <p class="footer">© Restaurantes bola</p>
     
 

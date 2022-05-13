@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Entrante;
 use App\Models\Postre;
+use App\Models\Vino;
 use App\Models\Primerplato;
 use Illuminate\Http\Response;
 
@@ -36,8 +37,19 @@ class CartaController extends Controller
         }
         else{
             return view('error');
-        }
+        }  
+    }
+
+    public function index2()
+    {
+        $rol =\Auth::user()->role;
         
+        if($rol == 'chef'){
+            return view('vi');
+        }
+        else{
+            return view('error');
+        }  
     }
 
     public function update(Request $request){
@@ -114,10 +126,7 @@ class CartaController extends Controller
         }
         else{
             return view('error');
-        }
-
-
-        
+        }    
     }
 
     public function show()
@@ -126,6 +135,52 @@ class CartaController extends Controller
         $datPP = Primerplato::all();
         $datP = Postre::all();
         return view('carta')->with('datE', $datE)->with('datPP', $datPP)->with('datP', $datP);
+            
+    }
+
+    // añadir vino a la carta
+    public function update2(Request $request){
+        
+        $rol =\Auth::user()->role;
+        
+        if($rol == 'chef'){
+            $name=$request->input('name');
+            $desc=$request->input('description');
+            $image_path = $request->file('image');
+            $preu = $request->input('preu');
+        
+            $validate=$this->validate($request,[
+                'name'=>['required','string','max:255'],
+                'description'=>['required','string','max:255'],
+            ]);
+    
+            $vino = New Vino();
+
+            $vino->name=$name;
+            $vino->description=$desc;
+            $vino->precio=$preu;
+
+            if ($image_path){
+                $path=$image_path->store('vino');
+                $filename = preg_replace('/^.+[\\\\\\/]/', '', $path);
+                $vino->image=$filename;
+            }
+    
+            $vino->save();
+
+            return view('plat');
+        
+        }
+        else{
+            return view('error');
+        }
+        
+    }
+    //enseñar carta vino
+    public function show2()
+    {
+        $datV = Vino::all();
+        return view('carta_vino')->with('data', $datV);
             
     }
 
@@ -146,5 +201,42 @@ class CartaController extends Controller
     {
         $file=Storage::disk('postre')->get($filename);
         return new Response($file,200);
+    }
+
+    
+    public function getimageV($filename)
+    {
+        $file=Storage::disk('vino')->get($filename);
+        return new Response($file,200);
+    }
+
+    public function detailE($id){
+        $datE = Entrante::all();
+        foreach($datE as $el){
+            if($el->id == $id){
+                return view('detailE')->with('element', $el);
+            }
+        }
+
+    }
+
+    public function detailPP($id){
+        $datPP = Primerplato::all();
+        foreach($datPP as $el){
+            if($el->id == $id){
+                return view('detailPP')->with('element', $el);
+            }
+        }
+
+    }
+
+    public function detailP($id){
+        $datP = Postre::all();
+        foreach($datP as $el){
+            if($el->id == $id){
+                return view('detailP')->with('element', $el);
+            }
+        }
+
     }
 }

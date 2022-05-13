@@ -4000,6 +4000,7 @@ textarea.form-control-lg {
 }
 
 .nav-link {
+  font-weight: bold;
   display: block;
   padding: 0.5rem 1rem;
   color: #000000;
@@ -4012,7 +4013,7 @@ textarea.form-control-lg {
   }
 }
 .nav-link:hover, .nav-link:focus {
-  color: #46310b;
+  background-color: #d4b29060;;
 }
 .nav-link.disabled {
   color: #6c757d;

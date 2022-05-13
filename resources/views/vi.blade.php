@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Crear plato') }}</div>
+                <div class="card-header">{{ __('Añadir vino') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('crear') }}" role="form" enctype="multipart/form-data" method="POST" >
+                    <form action="{{ route('af_vi') }}" role="form" enctype="multipart/form-data" method="POST" >
                         <input type="hidden" name="_method" value="PUT">
                             {!! csrf_field() !!}
                             
@@ -29,20 +29,6 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="plat" class="col-md-4 col-form-label text-md-end txt-form3">{{ __('Nuevo Plato') }}</label>
-
-                            <div class="col-md-6">
-                                <!--Hacer un bucle for, con las habitaciones-->
-                                <select id="plat" name="plat" class="form-select" aria-label="Default">
-                                    <option value=""></option>
-                                    <option value="entrant">entrante</option>
-                                    <option value="primer plat">primer plato</option>
-                                    <option value="postre">postre</option>
-                                </select>
                             </div>
                         </div>
 
@@ -85,7 +71,7 @@
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary" id="gooey-button">
-                                    {{ __('Crear plat') }}
+                                    {{ __('Añadir vino') }}
                                 </button>
                             </div>
                         </div>

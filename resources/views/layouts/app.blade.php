@@ -40,15 +40,7 @@
                                 <!--CAL EDITAR LES RUTES I CREAR RUTES NOVES QUE COMPLEIXIN LA FUNCIÓ QUE TOCA-->
                                         <a class="dropdown-item" href="{{ route('menu') }}">{{ __('Menu del dia') }}</a>
                                         <a class="dropdown-item" href="{{ route('carta') }}">{{ __('Carta') }}</a>
-                                        @guest
-
-                                        @else
-                                            @if(Auth::user()->role == 'chef')
-                                            <a class="dropdown-item" href="{{ route('dia') }}">
-                                                {{ __('Crear menu del dia') }}
-                                            </a>
-                                        @endguest
-                                    @endif 
+                                        <a class="dropdown-item" href="{{ route('carta_vi') }}">{{ __('Carta de vino') }}</a>
                             </div> 
                         </li>
                     </ul>
@@ -68,6 +60,9 @@
                                 </li>
                             @endif
                         @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contact-form')}}" role="button">{{ __('Contáctanos') }}</a></li>
+                        </li>
                         @if(Auth::user()->image)
                                     <img src="{{ route('avatar', ['filename'=>Auth::user()->image])}}" class="avatar" height="30px" width="35px" style="border-radius: 50%;">
                                 @endif
@@ -92,12 +87,21 @@
                                         </a>
                                         <a class="dropdown-item" href="{{ route('imgnova') }}">
                                             {{ __('Crear evento') }}
-                                            </a>
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('veureevents') }}">
+                                            {{ __('Eliminar evento') }}
+                                        </a>
                                     @endif
 
                                     @if(Auth::user()->role == 'chef')
                                         <a class="dropdown-item" href="{{ route('plat') }}">
                                             {{ __('Crear plato') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('vi') }}">
+                                            {{ __('Añadir vino') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('dia') }}">
+                                            {{ __('Crear menu del dia') }}
                                         </a>
                                     @endif 
                                     <a class="dropdown-item" href="{{ route('verreserva') }}">

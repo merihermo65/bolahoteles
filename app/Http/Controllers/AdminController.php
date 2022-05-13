@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\Reserva;
+use App\Models\Evento;
 
 
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -109,50 +110,88 @@ class AdminController extends Controller
         }
 
 
-    public function updatereserva(Request $request, $id)
-        {
-            $rol =\Auth::user()->role;
-            $users= User::all();
+    public function updatereserva(Request $request, $id){
+        $rol =\Auth::user()->role;
+        $users= User::all();
 
-            if($rol == 'admin'){
-                $taules= Reserva::all();
-            
-                    foreach($taules as $taula){
-                        if($id==$taula->id){
-                            $taula->usuario=NULL;
-                            $taula->reservat="FALSE";
-            
-                            $taula->update();
-                        }
-                    };
-            
-                return view('edit-reserva')->with('taules', $taules)->with('users', $users)->with(['a'=>"Se ha editado correctamente"]);
-            }
-            else{
-                return view('error');
-            }
+        if($rol == 'admin'){
+            $taules= Reserva::all();
+        
+                foreach($taules as $taula){
+                    if($id==$taula->id){
+                        $taula->usuario=NULL;
+                        $taula->reservat="FALSE";
+        
+                        $taula->update();
+                    }
+                };
+        
+            return view('edit-reserva')->with('taules', $taules)->with('users', $users)->with(['a'=>"Se ha editado correctamente"]);
         }
-
-        public function eliminareserva()
-        {
-            $rol =\Auth::user()->role;
-            $users= User::all();
-
-            if($rol == 'admin'){
-                $taules= Reserva::all();
-            
-                    foreach($taules as $taula){
-                            $taula->usuario=NULL;
-                            $taula->reservat="FALSE";
-            
-                            $taula->update();
-                    };
-            
-                return view('edit-reserva')->with('taules', $taules)->with('users', $users)->with(['a'=>"Se ha editado correctamente"]);
-            }
-            else{
-                return view('error');
-            }
+        else{
+            return view('error');
         }
+    }
+
+    public function eliminareserva()
+    {
+        $rol =\Auth::user()->role;
+        $users= User::all();
+
+        if($rol == 'admin'){
+            $taules= Reserva::all();
+        
+                foreach($taules as $taula){
+                        $taula->usuario=NULL;
+                        $taula->reservat="FALSE";
+        
+                        $taula->update();
+                };
+        
+            return view('edit-reserva')->with('taules', $taules)->with('users', $users)->with(['a'=>"Se ha editado correctamente"]);
+        }
+        else{
+            return view('error');
+        }
+    }
+
+    public function updateevent(Request $request, $id)
+    {
+        $rol =\Auth::user()->role;
+        $users= User::all();
+
+        if($rol == 'admin'){
+            $events= Evento::all();
+
+                foreach($events as $event){
+                    if($id==$event->id){
+                        $event->delete();
+                    }
+                };
+
+                $eventos = Evento::orderBy('created_at', 'desc')->paginate(2);
+
+                return view('home',compact('eventos'))->with('eventos', $eventos)->with('users', $users);
+        }
+        else{
+            return view('error');
+        }
+    }
+
+    public function veureevents()
+    {
+        $rol =\Auth::user()->role;
+        $users= User::all();
+
+        if($rol == 'admin'){
+            $user=\Auth::user();
+            $events = Evento::all();
+
+            return view('edit-event')->with('events', $events)->with('users', $users)->with(['a'=>""]);
+        }
+        else{
+            return view('error');
+        }
+    }
 
 }

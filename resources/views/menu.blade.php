@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('El menú del dia') }}</div>
 
                 <div class="card-body">
-                    @foreach($data as $value)
+                    
                     
                         <div class="menu-back" style="padding-bottom: 0px;">
                             <div class="row">
@@ -18,13 +18,18 @@
                                     <h1 style="text-align: center; color:black">MENÚ</h1>
                                     
                                     <h3 class="tmenu">ENTRANTE</h3>
-                                    {{$value->entrante}}<br/><br/>
+                                    @foreach($data as $value)
+                                        {{$value->entrante}}<br/><br/>
+                                    @endforeach
                                     <h3 class="tmenu">PRIMER PLATO</h3>
-
+                                    @foreach($data as $value)
                                     {{ __($value->primer) }}<br/><br/>
+                                     @endforeach    
                                     <h3 class="tmenu">POSTRE</h3>
-
-                                    {{ __($value->postre) }}<br/><br/><br/><br/>
+                                    @foreach($data as $value)
+                                    {{ __($value->postre) }}<br/><br/>
+                                    @endforeach
+                                    <br/><br/>
                                         
                                     Precio: 13,99€
 
@@ -33,7 +38,6 @@
                             </div>
                         
                     </div><br>
-                    @endforeach
                 </div>
             </div>
         </div>
