@@ -83,6 +83,13 @@ Route::put('/Menu_created', [App\Http\Controllers\MenuController::class, 'update
 
 Route::get('/menu-dia', [App\Http\Controllers\MenuController::class, 'show'])->name('menu');
 
+//detail de plato de la carta
+
+Route::get('/detailE/{filename}', [App\Http\Controllers\CartaController::class, 'detailE'])->name('detailE');
+Route::get('/detailPP/{filename}', [App\Http\Controllers\CartaController::class, 'detailPP'])->name('detailPP');
+Route::get('/detailP/{filename}', [App\Http\Controllers\CartaController::class, 'detailP'])->name('detailP');
+
+
 
 //imgnova
 
@@ -102,16 +109,24 @@ Route::get('/res2', [App\Http\Controllers\ReservaController::class, 'reserva'])-
 Route::get('/verres', [App\Http\Controllers\UserController::class, 'verreserva'])->name('verreserva');
 Route::get('/verres2/{filename}', [App\Http\Controllers\UserController::class, 'updateverreserva'])->name('verreserva2');
 
+//contacte
+
+Route::get('/contact-form', [App\Http\Controllers\EmailController::class,'contacto'])->name('contact-form');
 
 
 //EMAIL
 
-Route::get('/emailres', function(){
-    $email =\Auth::user()->email;
-    $correo = new ReservaMailable;
-    Mail::to($email)->send($correo);
-    return view('reserva')->with(['a'=>"Se ha reservado correctamente"]); 
-});
+Route::get('/emailres', [App\Http\Controllers\EmailController::class,'emailreserva'])->name('emailres');
+
+Route::get('/emailcon', [App\Http\Controllers\EmailController::class,'emailcontact'])->name('emailcon');
+
+
+
+//eliminar events
+
+
+Route::get('/veureevents', [App\Http\Controllers\AdminController::class, 'veureevents'])->name('veureevents');
+Route::get('/updateevent/{filename}', [App\Http\Controllers\AdminController::class, 'updateevent'])->name('updateevent');
 
 
 

@@ -37,7 +37,6 @@
                                 {{_('Cartas') }}        
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="hola">
-                                <!--CAL EDITAR LES RUTES I CREAR RUTES NOVES QUE COMPLEIXIN LA FUNCIÓ QUE TOCA-->
                                         <a class="dropdown-item" href="{{ route('menu') }}">{{ __('Menu del dia') }}</a>
                                         <a class="dropdown-item" href="{{ route('carta') }}">{{ __('Carta') }}</a>
                                         @guest
@@ -68,6 +67,9 @@
                                 </li>
                             @endif
                         @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contact-form')}}" role="button">{{ __('Contáctanos') }}</a></li>  
+                        </li>
                         @if(Auth::user()->image)
                                     <img src="{{ route('avatar', ['filename'=>Auth::user()->image])}}" class="avatar" height="30px" width="35px" style="border-radius: 50%;">
                                 @endif
@@ -82,7 +84,6 @@
                                         {{ __('Editar Perfil') }}
                                     </a>
 
-                                    <!--FALTA HACER QUE SEA FUNCIONAL DE MOMENTO TE REDIRIGE A HOME-->
                                    @if(Auth::user()->role == 'admin')
                                         <a class="dropdown-item" href="{{ route('edit-role') }}">
                                             {{ __('Modificar roles') }}
@@ -92,6 +93,9 @@
                                         </a>
                                         <a class="dropdown-item" href="{{ route('imgnova') }}">
                                             {{ __('Crear evento') }}
+                                            </a>
+                                        <a class="dropdown-item" href="{{ route('veureevents') }}">
+                                            {{ __('Eliminar evento') }}
                                             </a>
                                     @endif
 

@@ -129,6 +129,36 @@ class CartaController extends Controller
             
     }
 
+    public function detailE($id){
+        $datE = Entrante::all();
+        foreach($datE as $el){
+            if($el->id == $id){
+                return view('detailE')->with('element', $el);
+            }
+        }
+        
+    }
+
+    public function detailPP($id){
+        $datPP = Primerplato::all();
+        foreach($datPP as $el){
+            if($el->id == $id){
+                return view('detailPP')->with('element', $el);
+            }
+        }
+        
+    }
+
+    public function detailP($id){
+        $datP = Postre::all();
+        foreach($datP as $el){
+            if($el->id == $id){
+                return view('detailP')->with('element', $el);
+            }
+        }
+        
+    }
+
 
     public function getimageE($filename)
     {
