@@ -195,43 +195,8 @@ class AdminController extends Controller
     }
 
 
-        public function updateevent(Request $request, $id)
-        {
-            $rol =\Auth::user()->role;
-            $users= User::all();
 
-            if($rol == 'admin'){
-                $events= Evento::all();
-            
-                    foreach($events as $event){
-                        if($id==$event->id){
-                            $event->delete();
-                        }
-                    };
-            
-                    $eventos = Evento::orderBy('created_at', 'desc')->paginate(2);                    
-                    
-                    return view('home',compact('eventos'))->with('eventos', $eventos)->with('users', $users);
-            }
-            else{
-                return view('error');
-            }
-        }
 
-        public function veureevents()
-        {
-            $rol =\Auth::user()->role;
-            $users= User::all();
 
-            if($rol == 'admin'){
-                $user=\Auth::user();
-                $events = Evento::all();
-                
-                return view('edit-event')->with('events', $events)->with('users', $users)->with(['a'=>""]);
-            }
-            else{
-                return view('error');
-            }
-        }
 
 }
