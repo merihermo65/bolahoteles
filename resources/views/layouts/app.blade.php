@@ -37,7 +37,6 @@
                                 {{_('Cartas') }}        
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="hola">
-                                <!--CAL EDITAR LES RUTES I CREAR RUTES NOVES QUE COMPLEIXIN LA FUNCIÓ QUE TOCA-->
                                         <a class="dropdown-item" href="{{ route('menu') }}">{{ __('Menu del dia') }}</a>
                                         <a class="dropdown-item" href="{{ route('carta') }}">{{ __('Carta') }}</a>
                                         <a class="dropdown-item" href="{{ route('carta_vi') }}">{{ __('Carta de vino') }}</a>
@@ -77,7 +76,6 @@
                                         {{ __('Editar Perfil') }}
                                     </a>
 
-                                    <!--FALTA HACER QUE SEA FUNCIONAL DE MOMENTO TE REDIRIGE A HOME-->
                                    @if(Auth::user()->role == 'admin')
                                         <a class="dropdown-item" href="{{ route('edit-role') }}">
                                             {{ __('Modificar roles') }}
